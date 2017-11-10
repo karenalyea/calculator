@@ -27,12 +27,14 @@ public class CalculatorController {
 		Calculator calculator = new Calculator(firstNumber, operator, secondNumber);
 		double answer = calculator.totalNum();
 
-		inputList.add(calculator);
+		int index = 0;
+
+		inputList.add(index, calculator);
 
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("calculator");
 		mv.addObject("answer", answer);
-		mv.addObject("inputList", inputList); 
+		mv.addObject("inputList", inputList);
 		mv.addObject("arbitraryImage",
 				"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9eL-elhhI_24O6kmcDxX9C4yI1ClkU8vHRZiXjj_nFSTLvFPW");
 		return mv;
