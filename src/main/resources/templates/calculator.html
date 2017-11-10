@@ -4,7 +4,10 @@
 <meta charset="utf8">
 <title>Cool Calculator</title>
 </head>
-<h1>Cool Calculator</h1>
+<h1>
+	<img src="{{arbitraryImage }}">Cool Calculator
+</h1>
+
 <body>
 
 	<form action="/total" method="post">
@@ -22,5 +25,30 @@
 	{{#answer}}
 	<h3>Answer {{ answer }}</h3>
 	{{/answer}}
+	<br>
+
+
+	<table>
+		<thead>
+			<tr>
+				<th>Number</th>
+				<th>Operator</th>
+				<th>Number</th>
+				<th>Answer</th>
+			</tr>
+		</thead>
+		<tbody>
+			{{#inputList}}
+			<tr>
+				<td>{{ firstNumber }}</td>
+				<td>{{ operator }}</td>
+				<td>{{ secondNumber }}</td>
+				<td>{{ answer }}</td>
+
+			</tr>
+			{{/inputList}}
+		</tbody>
+	</table>
+
 </body>
 </html>

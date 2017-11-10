@@ -1,11 +1,18 @@
 package com.lmig.gfc.calculator.models;
 
+import java.util.ArrayList;
+
+
+
 public class Calculator {
 	private double firstNumber;
 	private double secondNumber;
 	private char operator;
 
+	private ArrayList<Calculator> inputList;
+
 	public Calculator(double firstNumber, char operator, double secondNumber) {
+		inputList = new ArrayList<Calculator>();
 		this.firstNumber = firstNumber;
 		this.operator = operator;
 		this.secondNumber = secondNumber;
@@ -41,4 +48,13 @@ public class Calculator {
 		}
 		return 0;
 	}
+
+	public void addToList(Calculator calculator) {
+		inputList.add(calculator);
+	}
+
+	public ArrayList<Calculator> getInputList() {
+		return inputList;
+	}
+
 }
