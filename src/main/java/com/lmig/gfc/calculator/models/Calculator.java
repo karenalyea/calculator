@@ -5,48 +5,55 @@ import java.util.ArrayList;
 
 
 public class Calculator {
-	private double firstNumber;
-	private double secondNumber;
-	private char operator;
+	private Double firstNumber = 0.0;
+	private Double secondNumber = 0.0;
+	private String operator = "";
+	boolean argumentsAreSupplied;
 
 	private ArrayList<Calculator> inputList;
 
-	public Calculator(double firstNumber, char operator, double secondNumber) {
+	public Calculator(Double firstNumber, String operator, Double secondNumber) {
 		inputList = new ArrayList<Calculator>();
-		this.firstNumber = firstNumber;
-		this.operator = operator;
-		this.secondNumber = secondNumber;
+		
+		argumentsAreSupplied = firstNumber != null && operator != null && secondNumber != null;
+		if (argumentsAreSupplied) {
+			this.firstNumber = firstNumber;
+			this.operator = operator;
+			this.secondNumber = secondNumber;
+		}
 	}
 
-	public double getFirstNumber() {
+	public Double getFirstNumber() {
 		return firstNumber;
 	}
 
-	public double getSecondNumber() {
+	public Double getSecondNumber() {
 		return secondNumber;
 	}
 
-	public char getOperator() {
+	public String getOperator() {
 		return operator;
 	}
 
-	public double totalNum() {
-		if (operator == '+') {
-			return (firstNumber + secondNumber);
+	public Double totalNum() {
+		if (argumentsAreSupplied) {
+			if (operator.equals("+")) {
+				return (firstNumber + secondNumber);
+			}
+			if (operator.equals("-")) {
+				return (firstNumber - secondNumber);
+			}
+			if (operator.equals("*")) {
+				return (firstNumber * secondNumber);
+			}
+			if (operator.equals("/")) {
+				return (firstNumber / secondNumber);
+			}
+			if (operator.equals("^")) {
+				return Math.pow(firstNumber, secondNumber);
+			}
 		}
-		if (operator == '-') {
-			return (firstNumber - secondNumber);
-		}
-		if (operator == '*') {
-			return (firstNumber * secondNumber);
-		}
-		if (operator == '/') {
-			return (firstNumber / secondNumber);
-		}
-		if (operator == '^') {
-			return Math.pow(firstNumber, secondNumber);
-		}
-		return 0;
+		return 0.0;
 	}
 
 	public void addToList(Calculator calculator) {
